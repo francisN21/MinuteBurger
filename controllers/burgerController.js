@@ -1,8 +1,6 @@
 const express = require("express");
-
-const router = express.Router();
-
 const burger = require("../models/burger.js");
+const router = express.Router();
 
 router.get("/", (req, res) => {
   //   use the ORM funtion to render burgers to be devoured on the screen
@@ -17,7 +15,7 @@ router.get("/", (req, res) => {
 
 router.post("/api/burger", (req, res) => {
   burger.create(
-    ["burger_name", "devour"],
+    ["burger_name", "devoured"],
     [req.body.name, req.body.devoured],
     (result) => {
       res.json({ id: result.insertId });
@@ -45,10 +43,10 @@ router.put("/api/burger/:id", (req, res) => {
 });
 
 router.delete("/api/burger/:id", (req, res) => {
-  const condition = `id = ${req.params.id}`;
+  const condition = req.params.id;
   // use the delete function on ORM
   burger.delete(condition, (result) => {
-    if (result.changedRows === 0) {
+    if (result.affectedRows === 0) {
       return res.status(404).end();
     }
     res.status(200).end();

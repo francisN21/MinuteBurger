@@ -1,0 +1,14 @@
+{{!-- burger list --}}
+<li>
+    {{!-- burger name --}}
+    {{burger_name}}
+    {{#if devoured}}<button class="devoured btn btn-secondary rounded" data-id="{{id}}"
+        data-notDevoured="{{devoured}}">Eat Burger
+    </button>
+    {{!-- If the burger.devoured value is true (has been eaten) it will change the button to a delete, instead of eat
+    --}}
+    {{else}}<button class="delete-burger btn btn-danger rounded" data-id="{{id}}">
+        Delete</button>
+    {{/if}}
+
+</li>

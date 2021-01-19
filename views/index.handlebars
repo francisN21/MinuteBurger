@@ -1,0 +1,47 @@
+{{!-- burger action row! --}}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            {{!-- Burgers list--}}
+            <h3 class="card-title text-center">Burgers to Eat!</h3>
+            <ul class="to-eat card-body mx-auto">
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgers/burger-block devoured=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            {{!-- Devoured burgers --}}
+            <h3 class="card-title text-center">Burgers Eaten!</h3>
+            {{!-- Burgers ready to be deleted --}}
+            <ul class="eaten card-body mx-auto">
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burgers/burger-block devoured=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{{!-- add burger section --}}
+<div class="row add-burger">
+    <div class="col-md-12 card mx-auto text-center">
+        <h3 class="card-title text-center">Add a burger you want to eat!</h3>
+        <form class="add-burger-form mx-auto">
+
+            <div class="form-group">
+                {{!-- <label for="new-burger">Add a Burger:</label> --}}
+                <input type="text" class="new-burger" name="burger_name">
+            </div>
+
+            {{!-- Submit button to send the new burger --}}
+            <button class="btn-secondary btn rounded" type="submit">Add Burger</button>
+        </form>
+    </div>
+</div>

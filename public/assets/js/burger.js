@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       // creates new burger
       const addBurger = {
-        burger_name: document.getElementById("new_burger").value.trim(),
-        devoured: document.getElementById("devour").checked,
+        burger_name: document.getElementById("new-burger").value.trim(),
+        // devoured: document.getElementById("devour").checked,
       };
 
       // Send POST request to create a new burger
@@ -89,10 +89,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }).then((res) => {
         console.log(res);
         console.log(`Deleted burger: ${id}`);
-
-        // Reload the page
-        location.reload();
       });
+      // Reload the page
+      location.reload();
     });
   });
 });
