@@ -11,8 +11,8 @@ const burger = {
   update(objColVals, condition, cb) {
     orm.update("burgers", objColVals, condition, (res) => cb(res));
   },
-  delete(condition, cb) {
-    orm.all("burgers", condition, (res) => cb(res));
+  delete(objColVals, condition, cb) {
+    orm.delete("burgers", objColVals, condition, (res) => cb(res));
   },
 };
 
