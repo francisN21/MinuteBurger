@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // Grabs the id of the element that goes by the name, "id"
         const id = e.target.getAttribute("data-id");
         const notDevoured = e.target.getAttribute("data-notDevoured");
-
+        console.log(id, notDevoured);
         const devour = {
           devoured: notDevoured,
         };
 
-        fetch(`/api/burger/${id}`, {
+        fetch(`/api/burgers/${id}`, {
           method: "PUT",
           headers: {
             Accept: "application/json",
@@ -40,23 +40,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
     });
   }
-
+  const btn = document.querySelector(".btn");
+  console.log(btn);
   // CREATE
   const addBurgerForm = document.getElementById("add-burger-form");
-
+  console.log(addBurgerForm);
   if (addBurgerForm) {
     // listens to the submit button event
-    addBurgerForm.addEventListener("submit", (e) => {
+    btn.addEventListener("submit", (e) => {
       e.preventDefault();
-
       // creates new burger
       const addBurger = {
-        burger_name: document.getElementById("new-burger").value.trim(),
+        burger_name: document.querySelector(".new-burger").value.trim(),
         // devoured: document.getElementById("devour").checked,
       };
-
+      console.log(addBurger);
       // Send POST request to create a new burger
-      fetch("/api/burger", {
+      fetch("/api/burgers", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const id = e.target.getAttribute("data-id");
 
       // Send the delete request
-      fetch(`/api/burger/${id}`, {
+      fetch(`/api/burgers/${id}`, {
         method: "DELETE",
       }).then((res) => {
         console.log(res);

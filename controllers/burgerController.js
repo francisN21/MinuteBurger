@@ -8,22 +8,23 @@ router.get("/", (req, res) => {
     const hbsObject = {
       burgers: data,
     };
-    console.log(hbsObject);
+    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
-router.post("/api/burger", (req, res) => {
+router.post("/api/burgers", (req, res) => {
   burger.create(
     ["burger_name", "devoured"],
-    [req.body.name, req.body.devoured],
+    [req.body.burger_name, req.body.devoured],
     (result) => {
+      console.log(result);
       res.json({ id: result.insertId });
     }
   );
 });
 
-router.put("/api/burger/:id", (req, res) => {
+router.put("/api/burgers/:id", (req, res) => {
   // sets the condition
   const condition = `id = ${req.params.id}`;
 
@@ -42,7 +43,7 @@ router.put("/api/burger/:id", (req, res) => {
   );
 });
 
-router.delete("/api/burger/:id", (req, res) => {
+router.delete("/api/burgers/:id", (req, res) => {
   const condition = req.params.id;
   // use the delete function on ORM
   burger.delete(condition, (result) => {
