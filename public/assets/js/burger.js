@@ -43,20 +43,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const btn = document.querySelector(".btn");
   console.log(btn);
   // CREATE
-  const addBurgerForm = document.getElementById("add-burger-form");
+  const addBurgerForm = document.querySelector(".add-burger-form");
   console.log(addBurgerForm);
   if (addBurgerForm) {
     // listens to the submit button event
-    btn.addEventListener("submit", (e) => {
+    addBurgerForm.addEventListener("submit", (e) => {
       e.preventDefault();
       // creates new burger
       const addBurger = {
-        burger_name: document.querySelector(".new-burger").value.trim(),
-        // devoured: document.getElementById("devour").checked,
+        burger_name: document.querySelector(".new-burger").value,
       };
       console.log(addBurger);
       // Send POST request to create a new burger
-      fetch("/api/burgers", {
+      fetch("/api/burgers/", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -66,7 +65,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         body: JSON.stringify(addBurger),
       }).then(() => {
         // empties the form for next submittion
-        document.getElementById("add-burger-form").value = "";
+        document.querySelectorAll(".add-burger-form").value = "";
 
         // Reload the page so the user can see the new quote
         console.log("Burger added!");
