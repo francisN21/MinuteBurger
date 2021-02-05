@@ -1,14 +1,71 @@
+* {
+  font-family: 'Source Code Pro', monospace;
+  /* for dark mode I need to have White text */
+  color: White !important;
+}
+body{
+  background-color: #18191A;
+  /* will use this once I know how to add a dark mode toggle to regular mode. */
+  /* background-attachment: fixed; */
+  /* background-image: url("https://wallpaperaccess.com/full/449903.jpg");     */
+}
+
+/* navbar settings here */
+.bd-navbar {
+  background-color:  #242526;
+}
+
+.navbar-nav{
+  position: relative;
+  margin-left: 70% !important;
+}
+
+div {
+  word-wrap: break-word;
+}
+/* c1 contains the main column */
+.c1{
+  margin-top: 45px;
+  transition: translate(50%, 50%);
+}
+/* c2 determins the values for the rows and columns  */
+.c2{
+  background-color: #242526;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.c3{
+  background-color: #242526;
+  border-radius: 10px;
+  margin-bottom: 100px;
+}
+
+/* own margin set for headers */
+h1{
+  margin-top: 10px;
+}
+h4{
+  margin-top: 10px;
+}
+/* hr for border separator */
+hr { display: block; 
+  overflow: hidden; 
+  border-style: inset;
+  border-width: 2px;
+}
+
+
 li {
     padding: 5px;
     margin: 5px;
-    background: #faebd7;
+    background: black;
   }
   
   .label {
     font-weight: bold;
   }
   
-  .create-update-form {
+  .add-burger-form {
     padding: 5px;
     margin: 5px;
     background: aqua;
