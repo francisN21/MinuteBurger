@@ -3,12 +3,10 @@ const burger = require("../models/burger.js");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  //   use the ORM funtion to render burgers to be devoured on the screen
   burger.all((data) => {
     const hbsObject = {
       burgers: data,
     };
-    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
@@ -34,7 +32,6 @@ router.put("/api/burgers/:id", (req, res) => {
     },
     condition,
     (result) => {
-      //   if theres no row added or changed then the ID shouldn't exist
       if (result.changedRows === 0) {
         return res.status(404).end();
       }
@@ -45,7 +42,6 @@ router.put("/api/burgers/:id", (req, res) => {
 
 router.delete("/api/burgers/:id", (req, res) => {
   const condition = `id = ${req.params.id}`;
-  // use the delete function on ORM
   burger.delete(condition, (result) => {
     if (result.affectedRows === 0) {
       return res.status(404).end();
