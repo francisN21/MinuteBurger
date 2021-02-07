@@ -4,6 +4,8 @@
 
 Heroku Deployment : [https://franciscos-burger.herokuapp.com/](https://franciscos-burger.herokuapp.com/)
 
+![](/public/assets/images/HandleBars.gif)
+
 A project to practice our mySQL and handlebars skill. Requires user input that saves to mySQL database and being fetched to the front end and being render to the HTML via handlebars.
 
 ### Installation
